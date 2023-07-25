@@ -1,16 +1,15 @@
 package com.killer.killersblocksnstuff;
 
+import com.killer.killersblocksnstuff.core.init.*;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -25,14 +24,30 @@ public class KBNS
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "kbns";
 
-    public KBNS()
-    {
-        // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+    public static final CreativeModeTab KBNS_TAB = new KbnsItemGroup("killersblocksnstuff_tab");
 
-        // Register ourselves for server and other game events we are interested in
+    public KBNS(){
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        BlockInit.BLOCKS.register(bus);
+        ItemInit.ITEMS.register(bus);
+        //FeatureInit.FEATURES.register(bus);
+        //SurfaceBuilderInit.SURFACE_BUILDERS.register(bus);
+       // BiomeInit.BIOMES.register(bus);
+        //BiomeInit.registerBiomes();
         MinecraftForge.EVENT_BUS.register(this);
+        //KbnsContainers.register(bus);
+        // KbnsTileEntities.register(bus);
+       //KbnsRecipeTypes.register(bus);
     }
+
+   // private void doClientStuff(final FMLClientSetupEvent event) {
+    //    event.enqueueWork(() -> {
+    //        MenuScreens.register(KbnsContainers.VIBRANIUM_FORGE_CONTAINER.get(), VibraniumForgeScreen::new);
+     //   });
+
+  //  }
 
     private void setup(final FMLCommonSetupEvent event)
     {
