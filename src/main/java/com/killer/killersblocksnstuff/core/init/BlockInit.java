@@ -15,7 +15,7 @@ public class BlockInit {
     public static final RegistryObject<Block> CONCRETE_LAMP_WHITE = BLOCKS.register("concrete_lamp_white", ConcreteLampWhite::new);
     public static final RegistryObject <Block>CONCRETE_LAMP_ORANGE = BLOCKS.register("concrete_lamp_orange", ConcreteLampOrange::new);
     public static final RegistryObject<Block> CONCRETE_LAMP_RED = BLOCKS.register("concrete_lamp_red", ConcreteLampRed::new);
-    //public static final RegistryObject<Block> VIBRANIUM_FORGE = BLOCKS.register("vibranium_forge", VibraniumForgeBlock::new);
+    public static final RegistryObject<Block> VIBRANIUM_FORGE = BLOCKS.register("vibranium_forge", VibraniumForgeBlock::new);
 
 
 

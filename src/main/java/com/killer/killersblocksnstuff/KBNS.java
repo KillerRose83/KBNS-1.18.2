@@ -32,6 +32,7 @@ public class KBNS
         //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);
+        SoundInit.SOUNDS.register(bus);
         //FeatureInit.FEATURES.register(bus);
         //SurfaceBuilderInit.SURFACE_BUILDERS.register(bus);
        // BiomeInit.BIOMES.register(bus);

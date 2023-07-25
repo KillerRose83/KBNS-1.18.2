@@ -1,0 +1,20 @@
+{
+  "vibranium_forge_start": {
+    "subtitle": "kbns.vibranium_forge_start",
+    "sounds": [
+      "kbns:vibranium_forge_start"
+    ]
+  },
+  "vibranium_forge_running": {
+    "subtitle": "kbns.vibranium_forge_running",
+    "sounds": [
+      "kbns:vibranium_forge_running"
+    ]
+  },
+  "vibranium_forge_stop": {
+    "subtitle": "kbns.vibranium_forge_stop",
+    "sounds": [
+      "kbns:vibranium_forge_stop"
+    ]
+  }
+}
