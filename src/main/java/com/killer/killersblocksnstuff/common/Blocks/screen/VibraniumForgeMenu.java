@@ -4,6 +4,7 @@ import com.killer.killersblocksnstuff.common.Blocks.screen.slot.ResultSlot;
 import com.killer.killersblocksnstuff.common.Blocks.tileEntity.*;
 import com.killer.killersblocksnstuff.core.init.*;
 import net.minecraft.network.*;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
@@ -14,17 +15,18 @@ import net.minecraftforge.items.*;
 public class VibraniumForgeMenu extends AbstractContainerMenu {
     private final VibraniumForgeBlockEntity blockEntity;
     private final Level level;
+    private final ContainerData data;
 
     public VibraniumForgeMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
+        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public VibraniumForgeMenu(int pContainerId, Inventory inv, BlockEntity entity) {
+    public VibraniumForgeMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(KbnsMenuTypes.VibraniumForgeMenu.get(), pContainerId);
         checkContainerSize(inv, 3);
         blockEntity = ((VibraniumForgeBlockEntity) entity);
         this.level = inv.player.level;
-
+        this.data = data;
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
@@ -34,9 +36,20 @@ public class VibraniumForgeMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(handler, 1, 56, 53));
             this.addSlot(new ResultSlot(handler, 2, 116, 35));
         });
+        addDataSlots(data);
     }
 
+    public boolean isCrafting() {
+        return data.get(0) > 0;
+    }
 
+    public int getScaledProgress() {
+        int progress = this.data.get(0);
+        int maxProgress = this.data.get(1);  // Max Progress
+        int progressArrowSize = 43; // This is the height in pixels of your arrow
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
     // must assign a slot number to each of the slots used by the GUI.
     // For this container, we can see both the tile inventory's slots as well as the player inventory slots and the hotbar.

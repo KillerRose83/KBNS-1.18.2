@@ -3,6 +3,7 @@ package com.killer.killersblocksnstuff;
 import com.killer.killersblocksnstuff.common.Blocks.screen.*;
 import com.killer.killersblocksnstuff.common.Blocks.tileEntity.*;
 import com.killer.killersblocksnstuff.core.init.*;
+import com.killer.killersblocksnstuff.recipe.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.world.item.*;
@@ -41,7 +42,7 @@ public class KBNS
         MinecraftForge.EVENT_BUS.register(this);
         KbnsMenuTypes.register(bus);
         KbnsBlockEntities.register(bus);
-        //KbnsRecipeTypes.register(bus);
+        KbnsRecipes.register(bus);
     }
 
    private void doClientStuff(final FMLClientSetupEvent event) {
