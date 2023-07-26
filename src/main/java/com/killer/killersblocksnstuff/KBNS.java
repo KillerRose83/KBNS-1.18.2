@@ -1,7 +1,10 @@
 package com.killer.killersblocksnstuff;
 
+import com.killer.killersblocksnstuff.common.Blocks.screen.*;
+import com.killer.killersblocksnstuff.common.Blocks.tileEntity.*;
 import com.killer.killersblocksnstuff.core.init.*;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -13,8 +16,6 @@ import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-
-import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(KBNS.MOD_ID)
@@ -29,26 +30,26 @@ public class KBNS
     public KBNS(){
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);
         SoundInit.SOUNDS.register(bus);
         //FeatureInit.FEATURES.register(bus);
         //SurfaceBuilderInit.SURFACE_BUILDERS.register(bus);
-       // BiomeInit.BIOMES.register(bus);
+        //BiomeInit.BIOMES.register(bus);
         //BiomeInit.registerBiomes();
         MinecraftForge.EVENT_BUS.register(this);
-        //KbnsContainers.register(bus);
-        // KbnsTileEntities.register(bus);
-       //KbnsRecipeTypes.register(bus);
+        KbnsMenuTypes.register(bus);
+        KbnsBlockEntities.register(bus);
+        //KbnsRecipeTypes.register(bus);
     }
 
-   // private void doClientStuff(final FMLClientSetupEvent event) {
-    //    event.enqueueWork(() -> {
-    //        MenuScreens.register(KbnsContainers.VIBRANIUM_FORGE_CONTAINER.get(), VibraniumForgeScreen::new);
-     //   });
+   private void doClientStuff(final FMLClientSetupEvent event) {
+       event.enqueueWork(() -> {
+           MenuScreens.register(KbnsMenuTypes.VibraniumForgeMenu.get(), VibraniumForgeScreen::new);
+       });
 
-  //  }
+   }
 
     private void setup(final FMLCommonSetupEvent event)
     {
