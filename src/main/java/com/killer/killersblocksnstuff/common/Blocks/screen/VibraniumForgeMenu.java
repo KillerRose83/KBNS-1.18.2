@@ -18,7 +18,7 @@ public class VibraniumForgeMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public VibraniumForgeMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public VibraniumForgeMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -49,6 +49,13 @@ public class VibraniumForgeMenu extends AbstractContainerMenu {
         int progressArrowSize = 43; // This is the height in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+    public int getScaledEnergy() {
+        int energy = this.data.get(2);
+        int maxEnergy = this.data.get(3);  // Max Progress
+        int progressArrowSize = 54; // This is the height in pixels of your arrow
+
+        return maxEnergy != 0 && energy != 0 ? energy * progressArrowSize / maxEnergy : 0;
     }
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
     // must assign a slot number to each of the slots used by the GUI.

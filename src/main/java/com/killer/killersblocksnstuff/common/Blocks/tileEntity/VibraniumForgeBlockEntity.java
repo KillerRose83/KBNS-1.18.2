@@ -3,8 +3,8 @@ package com.killer.killersblocksnstuff.common.Blocks.tileEntity;
 
 import com.killer.killersblocksnstuff.common.Blocks.*;
 import com.killer.killersblocksnstuff.common.Blocks.screen.*;
-import com.killer.killersblocksnstuff.core.init.*;
 import com.killer.killersblocksnstuff.recipe.*;
+import com.sun.jdi.event.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.*;
@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.common.util.*;
+import net.minecraftforge.energy.*;
 import net.minecraftforge.items.*;
 import org.jetbrains.annotations.*;
 import org.jetbrains.annotations.Nullable;
@@ -33,13 +34,29 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
             setChanged();
         }
     };
+    private final EnergyStorage energyHandler = new EnergyStorage(20000,1000,0,0){
+        @Override
+        public int receiveEnergy(int maxReceive, boolean simulate) {
+            setChanged();
+            return super.receiveEnergy(maxReceive, simulate);
+        }
 
+        @Override
+        public int extractEnergy(int maxExtract, boolean simulate) {
+            setChanged();
+            return super.extractEnergy(maxExtract, simulate);
+        }
+    };
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
 
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 100;
+    private int energyPerTick = 10;
+    private int energy = energyHandler.getEnergyStored();
+    private int maxEnergy = energyHandler.getMaxEnergyStored();
 
     @NotNull
     @Override
@@ -47,7 +64,9 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return lazyItemHandler.cast();
         }
-
+        if (cap == CapabilityEnergy.ENERGY) {
+            return lazyEnergyHandler.cast();
+        }
         return super.getCapability(cap, side);
     }
 
@@ -58,19 +77,24 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
                 switch (index) {
                     case 0: return VibraniumForgeBlockEntity.this.progress;
                     case 1: return VibraniumForgeBlockEntity.this.maxProgress;
+                    case 2: return VibraniumForgeBlockEntity.this.energy;
+                    case 3: return VibraniumForgeBlockEntity.this.maxEnergy;
                     default: return 0;
                 }
+
             }
 
             public void set(int index, int value) {
                 switch(index) {
                     case 0: VibraniumForgeBlockEntity.this.progress = value; break;
                     case 1: VibraniumForgeBlockEntity.this.maxProgress = value; break;
+                    case 2: VibraniumForgeBlockEntity.this.energy = value; break;
+                    case 3: VibraniumForgeBlockEntity.this.maxEnergy = value; break;
                 }
             }
 
             public int getCount() {
-                return 2;
+                return 4;
             }
         };
     }
@@ -86,6 +110,7 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        lazyEnergyHandler = LazyOptional.of(() -> energyHandler);
     }
 
     @Nullable
@@ -98,6 +123,7 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("vibranium_forge.progress", progress);
+        tag.putInt("energy", energy);
         super.saveAdditional(tag);
     }
 
@@ -106,6 +132,7 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("vibranium_forge.progress");
+        energy = nbt.getInt("energy");
     }
 
 
@@ -114,6 +141,7 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
     public void invalidateCaps()  {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
+        lazyEnergyHandler.invalidate();
     }
 
     public void drops() {
@@ -127,24 +155,33 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
 
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, VibraniumForgeBlockEntity pBlockEntity) {
-        if(hasRecipe(pBlockEntity)) {
-            pBlockEntity.progress++;
+        int fePerTick = pBlockEntity.energyPerTick;
+        int energy = pBlockEntity.energy;
+        if (!pLevel.isClientSide)
+            if(hasRecipe(pBlockEntity) && energy >= fePerTick) {
+
+            //Changing the block state to on (LIT)
             pState = pState.setValue(AbstractFurnaceBlock.LIT, Boolean.TRUE);
             pLevel.setBlock(pPos, pState, 3);
-            setChanged(pLevel, pPos, pState);
+
+            //System.out.println(pBlockEntity.getBlockState());
+            pBlockEntity.progress++;
+            pBlockEntity.subtractEnergy();
+            setChanged(pLevel,pPos,pState);
+
+
             if(pBlockEntity.progress > pBlockEntity.maxProgress) {
                 craftItem(pBlockEntity);
-                if (!hasRecipe(pBlockEntity)){
-                    pState = pState.setValue(AbstractFurnaceBlock.LIT, Boolean.FALSE);
-                    pLevel.setBlock(pPos, pState, 3);
-                }
             }
         } else {
             pBlockEntity.resetProgress();
-            setChanged(pLevel, pPos, pState);
-            if (!hasRecipe(pBlockEntity)){
+            setChanged(pLevel,pPos,pState);
+
+            if (!hasRecipe(pBlockEntity) || (energy <= fePerTick)){
+                //System.out.println("Made it though if statement with " + energy + " energy, and hasRecipe = " + hasRecipe(pBlockEntity) + ". The blockstate = "+pBlockEntity.getBlockState());
                 pState = pState.setValue(AbstractFurnaceBlock.LIT, Boolean.FALSE);
                 pLevel.setBlock(pPos, pState, 3);
+                setChanged(pLevel,pPos,pState);
             }
         }
     }
@@ -187,8 +224,9 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
     private void resetProgress() {
         this.progress = 0;
     }
-
-
+    private void subtractEnergy() {
+        this.energy = energy - energyPerTick;
+    }
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
         return inventory.getItem(2).getItem() == output.getItem() || inventory.getItem(2).isEmpty();
     }
@@ -196,6 +234,21 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
     }
+
+    private void light(BlockState pState, BlockPos pPos, Level pLevel){
+
+        pState = pState.setValue(AbstractFurnaceBlock.LIT, Boolean.TRUE);
+        pLevel.setBlock(pPos, pState, 3);
+        setChanged();
+    };
+
+    private void dark(BlockState pState, BlockPos pPos, Level pLevel){
+
+        pState = pState.setValue(AbstractFurnaceBlock.LIT, Boolean.FALSE);
+        pLevel.setBlock(pPos, pState, 3);
+        setChanged();
+    };
+
 }
 
 

@@ -28,8 +28,13 @@ public class VibraniumForgeScreen extends AbstractContainerScreen<VibraniumForge
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
 
+        //Intended to be used for energy bar at some point
+        this.blit(pPoseStack, x + 11, y + 70 - menu.getScaledEnergy(), 177, 73- menu.getScaledEnergy(), 19, menu.getScaledEnergy());
+
+        //Progress Bar
         if(menu.isCrafting()) {
             blit(pPoseStack, x + 58, y + 34, 179, 0, menu.getScaledProgress(), 18);
+
         }
     }
 
