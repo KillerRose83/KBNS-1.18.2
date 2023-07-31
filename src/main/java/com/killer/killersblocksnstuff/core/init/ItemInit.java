@@ -26,6 +26,10 @@ public class ItemInit {
     public static final RegistryObject<Item> VIBRANIUM_FORGE_BLOCK_ITEM = ITEMS.register("vibranium_forge", () -> {
         return new ForgeBlockItem((Block) BlockInit.VIBRANIUM_FORGE.get());
      });
+
+    public static final RegistryObject<Item> SOLAR_GENERATOR_BLOCK_ITEM = ITEMS.register("solar_generator", () -> {
+        return new ForgeBlockItem((Block) BlockInit.SOLAR_GENERATOR.get());
+    });
     public static final RegistryObject<Item> REFINED_VIBRANIUM_POWDER_BLOCK_ITEM = ITEMS.register("refined_vibranium_powder_block", () -> {
         return new BlockItemBase((Block) BlockInit.REFINED_VIBRANIUM_POWDER_BLOCK.get());
     });

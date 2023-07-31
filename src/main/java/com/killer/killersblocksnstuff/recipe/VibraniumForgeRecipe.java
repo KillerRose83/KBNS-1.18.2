@@ -76,6 +76,7 @@ public class VibraniumForgeRecipe implements Recipe<SimpleContainer> {
         public VibraniumForgeRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
 
+
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
 

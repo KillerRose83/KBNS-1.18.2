@@ -14,6 +14,9 @@ public class KbnsMenuTypes {
     public static final RegistryObject<MenuType<VibraniumForgeMenu>> VibraniumForgeMenu =
             registerMenuType(VibraniumForgeMenu::new, "vibranium_forge_menu");
 
+    public static final RegistryObject<MenuType<SolarGeneratorMenu>> SolarGeneratorMenu =
+            registerMenuType(SolarGeneratorMenu::new, "solar_generator_menu");
+
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

@@ -15,6 +15,10 @@ public class KbnsBlockEntities {
             BLOCK_ENTITIES.register("vibranium_forge_block_entity", () -> BlockEntityType.Builder.of(
                     VibraniumForgeBlockEntity::new, BlockInit.VIBRANIUM_FORGE.get()).build(null));
 
+    public static RegistryObject<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("solar_generator_block_entity", () -> BlockEntityType.Builder.of(
+                    SolarGeneratorBlockEntity::new, BlockInit.SOLAR_GENERATOR.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

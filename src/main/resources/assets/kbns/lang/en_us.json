@@ -7,6 +7,7 @@
   "block.kbns.concrete_lamp_orange": "Orange Concrete Lamp",
   "block.kbns.concrete_lamp_red": "Red Concrete Lamp",
   "block.kbns.vibranium_forge": "Forge",
+  "block.kbns.solar_generator": "Solar Panel",
 
 
   "biome.kbns.tattered_plains": "Tattered Plains Biome",
@@ -53,8 +54,8 @@
 
   "tooltip.kbns.sword":"§7Sets targets on fire as well as weakening them.\n But be careful you might suffer the same fate... \n §7Hold §eSHIFT§r for more info",
   "tooltip.kbns.sword_shift":"§7Forged from a mysterious material found in the depths of the abyss...",
-  "block.kbns.vibranium_forge_block_entity": "Vibranium Forge"
-
+  "block.kbns.vibranium_forge_block_entity": "Vibranium Forge",
+  "block.kbns.solar_generator_block_entity": "Solar Panel"
 
 
 }

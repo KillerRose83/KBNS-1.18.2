@@ -26,7 +26,7 @@ public class KBNS
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "kbns";
 
-    public static final CreativeModeTab KBNS_TAB = new KbnsItemGroup("killersblocksnstuff_tab");
+    public static final CreativeModeTab KBNS_TAB = new KbnsItemGroup("kbns_tab");
 
     public KBNS(){
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -48,6 +48,7 @@ public class KBNS
    private void doClientStuff(final FMLClientSetupEvent event) {
        event.enqueueWork(() -> {
            MenuScreens.register(KbnsMenuTypes.VibraniumForgeMenu.get(), VibraniumForgeScreen::new);
+           MenuScreens.register(KbnsMenuTypes.SolarGeneratorMenu.get(), SolarGeneratorScreen::new);
        });
 
    }
