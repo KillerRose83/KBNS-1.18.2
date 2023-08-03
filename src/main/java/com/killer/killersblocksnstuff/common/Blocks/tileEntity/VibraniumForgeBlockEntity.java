@@ -239,11 +239,11 @@ public class VibraniumForgeBlockEntity extends BlockEntity implements MenuProvid
                     int dif = maxEnergy - energy;
                     neighbor.getCapability(CapabilityEnergy.ENERGY, direction.getOpposite()).ifPresent(storage -> {
                         final int canReceive = Math.min(storage.getEnergyStored(), Math.min(energyHandler.maxReceive(), dif));
-                        if (neighbor != this && storage.canExtract() && maxEnergy > canReceive + energy) {
+                        if (neighbor != this && storage.canExtract() && maxEnergy > canReceive + energy && neighbor.getType() != this.getType()) {
                             final int extractedEnergy = storage.extractEnergy(canReceive, false);
                             neighbor.setChanged();
                             energy = energy + canReceive;
-                        } else if (energy < maxEnergy + dif){
+                        } else if (energy < maxEnergy + dif && neighbor.getType() != this.getType()){
                             storage.extractEnergy(dif,false);
                             energy = energy + dif;
                         }

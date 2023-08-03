@@ -2,15 +2,14 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:alternatives",
           "children": [
             {
               "type": "minecraft:item",
-              "name": "kbns:vibranium_ore",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -25,18 +24,18 @@
                     ]
                   }
                 }
-              ]
+              ],
+              "name": "minecraft:copper_ore"
             },
             {
               "type": "minecraft:item",
-              "name": "kbns:vibranium_powder",
               "functions": [
                 {
                   "function": "minecraft:set_count",
                   "count": {
                     "type": "minecraft:uniform",
-                    "min": 1,
-                    "max": 4
+                    "min": 2.0,
+                    "max": 5.0
                   },
                   "add": false
                 },
@@ -48,7 +47,8 @@
                 {
                   "function": "minecraft:explosion_decay"
                 }
-              ]
+              ],
+              "name": "minecraft:raw_copper"
             }
           ]
         }

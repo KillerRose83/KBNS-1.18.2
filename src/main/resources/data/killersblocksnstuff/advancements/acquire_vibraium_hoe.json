@@ -2,7 +2,7 @@
   "parent": "minecraft:husbandry/plant_seed",
   "display": {
     "icon": {
-      "item": "killersblocksnstuff:vibranium_hoe",
+      "item": "kbns:vibranium_hoe",
       "nbt": "{Damage:0}"
     },
     "title": "Bro Why?!?!?!",
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "item": "killersblocksnstuff:vibranium_hoe"
+            "item": "kbns:vibranium_hoe"
           }
         ]
       }

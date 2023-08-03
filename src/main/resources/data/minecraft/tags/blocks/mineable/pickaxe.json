@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "kbns:vibranium_forge",
+    "kbns:vibranium_ore",
+    "kbns:solar_generator",
+    "kbns:concrete_lamp_orange",
+    "kbns:concrete_lamp_red",
+    "kbns:concrete_lamp_white",
+    "kbns:vibranium_block"
+  ]
+}

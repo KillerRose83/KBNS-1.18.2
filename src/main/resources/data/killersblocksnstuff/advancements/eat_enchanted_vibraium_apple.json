@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "killersblocksnstuff:enchanted_vibranium_apple"
+      "item": "kbns:enchanted_vibranium_apple"
     },
     "title": "Buff-et",
     "description": "Eat an Enchanted Vibranium Apple",
@@ -16,7 +16,7 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "killersblocksnstuff:enchanted_vibranium_apple"
+          "item": "kbns:enchanted_vibranium_apple"
         }
       }
     }

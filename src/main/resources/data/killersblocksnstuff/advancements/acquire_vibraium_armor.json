@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "killersblocksnstuff:vibranium_chestplate"
+      "item": "kbns:vibranium_chestplate"
     },
     "title": "Cover Me In End Stuff!",
     "description": "Get Vibranium Armor",
@@ -17,16 +17,16 @@
       "conditions": {
         "items": [
           {
-            "item": "killersblocksnstuff:vibranium_helmet"
+            "item": "kbns:vibranium_helmet"
           },
           {
-            "item": "killersblocksnstuff:vibranium_chestplate"
+            "item": "kbns:vibranium_chestplate"
           },
           {
-            "item": "killersblocksnstuff:vibranium_leggings"
+            "item": "kbns:vibranium_leggings"
           },
           {
-            "item": "killersblocksnstuff:vibranium_boots"
+            "item": "kbns:vibranium_boots"
           }
         ]
       }

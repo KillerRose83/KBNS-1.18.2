@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "killersblocksnstuff:vibranium_apple"
+      "item": "kbns:vibranium_apple"
     },
     "title": "MMM Tasty",
     "description": "Eat a Vibranium Apple",
@@ -16,7 +16,7 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "killersblocksnstuff:vibranium_apple"
+          "item": "kbns:vibranium_apple"
         }
       }
     }

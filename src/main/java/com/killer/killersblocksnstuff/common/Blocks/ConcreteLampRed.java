@@ -10,6 +10,6 @@ public class ConcreteLampRed extends Block {
                 .sound(SoundType.STONE)
                 .lightLevel((lightLevel) -> {
                     return 15;
-                }));
+                }).requiresCorrectToolForDrops());
     }
 }

@@ -28,7 +28,7 @@ public class VibraniumForgeBlock extends BaseEntityBlock implements TickingBlock
 
 
     public VibraniumForgeBlock() {
-        super(BlockBehaviour.Properties.of(Material.METAL).strength(7.0F, -1.0F).sound(SoundType.STONE));
+        super(BlockBehaviour.Properties.of(Material.METAL).strength(7.0F, -1.0F).sound(SoundType.STONE).requiresCorrectToolForDrops());
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.FALSE));
     }
 

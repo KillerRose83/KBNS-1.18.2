@@ -31,6 +31,12 @@ public class VibraniumForgeRecipe implements Recipe<SimpleContainer> {
         } else return false;
     }
 
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
+
     @Override
     public ItemStack assemble(SimpleContainer p_44001_) {
         return output;

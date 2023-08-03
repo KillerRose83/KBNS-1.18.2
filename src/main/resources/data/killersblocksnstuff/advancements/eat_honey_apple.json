@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "killersblocksnstuff:honey_apple"
+      "item": "kbns:honey_apple"
     },
     "title": "Sweet Tooth",
     "description": "Eat a Honey Apple",
@@ -16,7 +16,7 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "killersblocksnstuff:honey_apple"
+          "item": "kbns:honey_apple"
         }
       }
     }

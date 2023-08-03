@@ -8,6 +8,6 @@ public class ConcreteLampWhite extends Block {
       super(Properties.of(Material.STONE)
               .strength(1.8F, 1.8F)
               .sound(SoundType.STONE)
-              .lightLevel((lightLevel) -> { return 15; }));
+              .lightLevel((lightLevel) -> { return 15; }).requiresCorrectToolForDrops());
    }
 }

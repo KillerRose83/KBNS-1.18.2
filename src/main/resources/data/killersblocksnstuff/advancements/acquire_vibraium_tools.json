@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "killersblocksnstuff:vibranium_pickaxe"
+      "item": "kbns:vibranium_pickaxe"
     },
     "title": "Tools Fit For A King!",
     "description": "Get Vibranium Tools",
@@ -17,16 +17,16 @@
       "conditions": {
         "items": [
           {
-            "item": "killersblocksnstuff:vibranium_sword"
+            "item": "kbns:vibranium_sword"
           },
           {
-            "item": "killersblocksnstuff:vibranium_pickaxe"
+            "item": "kbns:vibranium_pickaxe"
           },
           {
-            "item": "killersblocksnstuff:vibranium_shovel"
+            "item": "kbns:vibranium_shovel"
           },
           {
-            "item": "killersblocksnstuff:vibranium_axe"
+            "item": "kbns:vibranium_axe"
           }
         ]
       }

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "killersblocksnstuff:vibranium_powder"
+      "item": "kbns:vibranium_powder"
     },
     "title": "End Ore!?",
     "description": "Get a hold Vibranium!",
@@ -20,8 +20,8 @@
         "items": [
           {
             "items": [
-              "killersblocksnstuff:vibranium_powder",
-              "killersblocksnstuff:vibranium_ore"
+              "kbns:vibranium_powder",
+              "kbns:vibranium_ore"
             ]
           }
         ]
