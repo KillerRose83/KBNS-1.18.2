@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "kbns:telemberite_chestplate"
+    },
+    "title": "Cover Me In End Stuff!",
+    "description": "Get Telemberite Armor",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "kbns:telemberite_helmet"
+          },
+          {
+            "item": "kbns:telemberite_chestplate"
+          },
+          {
+            "item": "kbns:telemberite_leggings"
+          },
+          {
+            "item": "kbns:telemberite_boots"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 200
+  }
+}

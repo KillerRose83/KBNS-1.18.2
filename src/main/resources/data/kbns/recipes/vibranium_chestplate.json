@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_chestplate"
+  },
+  "addition": {
+    "item": "kbns:telemberite_ingot"
+  },
+  "result": {
+    "item": "kbns:telemberite_chestplate"
+  }
+}

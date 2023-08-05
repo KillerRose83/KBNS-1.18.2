@@ -1,0 +1,23 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "kbns:refined_telemberite_powder"
+    }
+  },
+  "result":
+  {
+    "item": "kbns:refined_telemberite_powder_block",
+    "count": 1
+  }
+}
+

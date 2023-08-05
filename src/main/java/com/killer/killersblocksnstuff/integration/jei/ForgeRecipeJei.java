@@ -1,14 +1,12 @@
 package com.killer.killersblocksnstuff.integration.jei;
 
 import com.killer.killersblocksnstuff.*;
-import com.killer.killersblocksnstuff.core.init.*;
+import com.killer.killersblocksnstuff.init.*;
 import com.killer.killersblocksnstuff.recipe.*;
 import mezz.jei.api.constants.*;
-import mezz.jei.api.gui.*;
 import mezz.jei.api.gui.builder.*;
 import mezz.jei.api.gui.drawable.*;
 import mezz.jei.api.helpers.*;
-import mezz.jei.api.ingredients.*;
 import mezz.jei.api.recipe.*;
 import mezz.jei.api.recipe.category.*;
 import net.minecraft.network.chat.*;

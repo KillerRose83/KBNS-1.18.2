@@ -1,0 +1,15 @@
+{
+  "type": "kbns:forging",
+  "ingredients": [
+    {
+      "item": "kbns:refined_telemberite_powder"
+    },
+    {
+      "item": "kbns:refined_telemberite_powder"
+    }
+  ],
+  "output": {
+    "item": "kbns:telemberite_ingot"
+  },
+  "craftTime": 100
+}

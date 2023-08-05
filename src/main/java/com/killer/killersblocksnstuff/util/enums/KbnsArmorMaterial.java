@@ -2,7 +2,7 @@ package com.killer.killersblocksnstuff.util.enums;
 
 
 
-import com.killer.killersblocksnstuff.core.init.*;
+import com.killer.killersblocksnstuff.init.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;

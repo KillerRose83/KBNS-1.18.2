@@ -1,12 +1,12 @@
 {
-  "block.kbns.vibranium_ore": "Vibranium Ore",
-  "block.kbns.vibranium_block": "Block of Vibranium",
+  "block.kbns.telemberite_ore": "Telemberite Ore",
+  "block.kbns.telemberite_block": "Block of Telemberite",
   "block.kbns.void_stone": "Void Stone Lamp",
-  "block.kbns.refined_vibranium_powder_block": "Refined Vibranium Powder Block",
+  "block.kbns.refined_telemberite_powder_block": "Refined Telemberite Powder Block",
   "block.kbns.concrete_lamp_white": "White Concrete Lamp",
   "block.kbns.concrete_lamp_orange": "Orange Concrete Lamp",
   "block.kbns.concrete_lamp_red": "Red Concrete Lamp",
-  "block.kbns.vibranium_forge": "Forge",
+  "block.kbns.telemberite_forge": "Forge",
   "block.kbns.solar_generator": "Solar Panel",
 
 
@@ -23,25 +23,25 @@
   "screen.kbns.vibranium_forge":"Forge",
 
 
-  "item.kbns.vibranium_powder": "Vibranium Powder",
-  "item.kbns.refined_vibranium_powder": "Refined Vibranium Powder",
-  "item.kbns.vibranium_ingot": "Vibranium Ingot",
-  "item.kbns.vibranium_apple": "Vibranium Apple",
-  "item.kbns.enchanted_vibranium_apple": "Enchanted Vibranium Apple",
+  "item.kbns.telemberite_powder": "Telemberite Powder",
+  "item.kbns.refined_telemberite_powder": "Refined Telemberite Powder",
+  "item.kbns.telemberite_ingot": "Telemberite Ingot",
+  "item.kbns.telemberite_apple": "Telemberite Apple",
+  "item.kbns.enchanted_telemberite_apple": "Enchanted Telemberite Apple",
   "item.kbns.honey_apple": "Honey Apple",
-  "item.kbns.vibranium_sword": "Vibranium Sword",
-  "item.kbns.vibranium_pickaxe": "Vibranium Pickaxe",
-  "item.kbns.vibranium_axe": "Vibranium Axe",
-  "item.kbns.vibranium_hoe": "Vibranium Hoe",
-  "item.kbns.vibranium_shovel": "Vibranium Shovel",
+  "item.kbns.telemberite_sword": "Telemberite Sword",
+  "item.kbns.telemberite_pickaxe": "Telemberite Pickaxe",
+  "item.kbns.telemberite_axe": "Telemberite Axe",
+  "item.kbns.telemberite_hoe": "Telemberite Hoe",
+  "item.kbns.telemberite_shovel": "Telemberite Shovel",
   "item.kbns.reinforced_tool_rod": "Reinforced Tool Rod",
   "item.kbns.void_stone_powder": "Void Stone Powder",
 
 
-  "item.kbns.vibranium_helmet": "Vibranium Helmet",
-  "item.kbns.vibranium_chestplate": "Vibranium Chestplate",
-  "item.kbns.vibranium_leggings": "Vibranium Leggings",
-  "item.kbns.vibranium_boots": "Vibranium Boots",
+  "item.kbns.telemberite_helmet": "Telemberite Helmet",
+  "item.kbns.telemberite_chestplate": "Telemberite Chestplate",
+  "item.kbns.telemberite_leggings": "Telemberite Leggings",
+  "item.kbns.telemberite_boots": "Telemberite Boots",
 
   "tooltip.kbns.enchantedapple_shift":"",
   "tooltip.kbns.haste_food_shift":"",
@@ -54,8 +54,9 @@
 
   "tooltip.kbns.sword":"§7Sets targets on fire as well as weakening them.\n But be careful you might suffer the same fate... \n §7Hold §eSHIFT§r for more info",
   "tooltip.kbns.sword_shift":"§7Forged from a mysterious material found in the depths of the abyss...",
-  "block.kbns.vibranium_forge_block_entity": "Vibranium Forge",
-  "block.kbns.solar_generator_block_entity": "Solar Panel"
+  "block.kbns.vibranium_forge_block_entity": "Telemberite Forge",
+  "block.kbns.solar_generator_block_entity": "Solar Panel",
+  "block.kbns.telemberite_forge_block_entity": "Telemberite Forge"
 
 
 }

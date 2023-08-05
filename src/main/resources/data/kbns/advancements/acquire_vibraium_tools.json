@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "kbns:telemberite_pickaxe"
+    },
+    "title": "Tools Fit For A King!",
+    "description": "Get Telemberite Tools",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "kbns:telemberite_sword"
+          },
+          {
+            "item": "kbns:telemberite_pickaxe"
+          },
+          {
+            "item": "kbns:telemberite_shovel"
+          },
+          {
+            "item": "kbns:telemberite_axe"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 300
+  }
+}

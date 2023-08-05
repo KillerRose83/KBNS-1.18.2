@@ -1,9 +1,10 @@
 package com.killer.killersblocksnstuff;
 
-import com.killer.killersblocksnstuff.common.Blocks.screen.*;
-import com.killer.killersblocksnstuff.common.Blocks.tileEntity.*;
-import com.killer.killersblocksnstuff.core.init.*;
+import com.killer.killersblocksnstuff.Blocks.screen.*;
+import com.killer.killersblocksnstuff.Blocks.tileEntity.*;
+import com.killer.killersblocksnstuff.init.*;
 import com.killer.killersblocksnstuff.recipe.*;
+import com.killer.killersblocksnstuff.world.structure.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.world.item.*;
@@ -23,7 +24,7 @@ import org.slf4j.Logger;
 public class KBNS
 {
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "kbns";
 
     public static final CreativeModeTab KBNS_TAB = new KbnsItemGroup("kbns_tab");
@@ -35,6 +36,7 @@ public class KBNS
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);
         SoundInit.SOUNDS.register(bus);
+        KbnsStructures.register(bus);
         //FeatureInit.FEATURES.register(bus);
         //SurfaceBuilderInit.SURFACE_BUILDERS.register(bus);
         //BiomeInit.BIOMES.register(bus);

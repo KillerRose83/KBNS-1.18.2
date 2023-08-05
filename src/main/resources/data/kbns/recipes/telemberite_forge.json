@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "dcd",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:iron_block"
+    },
+    "d":
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    "c":
+    {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result":
+  {
+    "item": "kbns:telemberite_forge",
+    "count": 1
+  }
+}

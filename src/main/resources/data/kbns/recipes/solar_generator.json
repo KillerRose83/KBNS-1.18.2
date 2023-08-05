@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "bbb",
+    " x ",
+    "xcx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:iron_block"
+    },
+    "c":
+    {
+      "item": "minecraft:redstone_block"
+    },
+    "b":
+    {
+      "item": "minecraft:blue_stained_glass_pane"
+    }
+  },
+  "result":
+  {
+    "item": "kbns:solar_generator",
+    "count": 1
+  }
+}

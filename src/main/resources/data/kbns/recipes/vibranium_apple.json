@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DDD",
+    "DND",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "kbns:telemberite_ingot"
+    },
+    "N": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "item": "kbns:telemberite_apple",
+    "count": 1
+  }
+}

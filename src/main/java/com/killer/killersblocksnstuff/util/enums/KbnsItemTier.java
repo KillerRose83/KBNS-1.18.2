@@ -1,7 +1,7 @@
 package com.killer.killersblocksnstuff.util.enums;
 
 
-import com.killer.killersblocksnstuff.core.init.*;
+import com.killer.killersblocksnstuff.init.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.*;
 

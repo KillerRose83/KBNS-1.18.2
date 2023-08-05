@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kbns:telemberite_block"
+    }
+  ],
+  "result":
+  {
+    "item": "kbns:telemberite_ingot",
+    "count": 9
+  }
+}

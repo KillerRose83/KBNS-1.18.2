@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "display": {
+    "icon": {
+      "item": "kbns:telemberite_hoe",
+      "nbt": "{Damage:0}"
+    },
+    "title": "Bro Why?!?!?!",
+    "description": "Spent there diamonds and a telemberite ingot on a hoe",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "telemberite_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "kbns:telemberite_hoe"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "telemberite_hoe"
+    ]
+  ]
+}
