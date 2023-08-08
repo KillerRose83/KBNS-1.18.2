@@ -13,7 +13,7 @@
           // This has a 50% chance of allowing the found stone bricks block to be replaced
           "input_predicate": {
             "block": "minecraft:end_stone",
-            "probability": 0.1,
+            "probability": 0.05,
             "predicate_type": "minecraft:random_block_match"
           },
           // This is always true
